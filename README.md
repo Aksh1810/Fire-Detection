@@ -31,30 +31,6 @@ This system leverages state-of-the-art YOLOv8 object detection to identify fire 
 - **Model Size**: ~6MB (YOLOv8n)
 - **Accuracy**: Trained on 2,000+ annotated fire images
 
-## 🚀 Quick Start
-
-### Installation
-```bash
-pip install -r requirements.txt
-```
-
-### Run Detection
-**Webcam:**
-```bash
-python detect_fire.py
-```
-
-**Image:**
-```bash
-python detect_fire_image.py image.jpg
-```
-
-### Train Custom Model
-Use the included Google Colab notebook for GPU-accelerated training, or run locally:
-```bash
-python train_fire.py
-```
-
 ## 📁 Project Structure
 
 ```

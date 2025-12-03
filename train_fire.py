@@ -1,17 +1,7 @@
 from ultralytics import YOLO
 
 def train_model():
-    # Load a model
-    model = YOLO('yolov8n.pt')  # load a pretrained model (recommended for training)
-
-    # Train the model
-    # You need a 'data.yaml' file that points to your dataset.
-    # The dataset should be in YOLO format.
-    # Example data.yaml content:
-    # train: /path/to/train/images
-    # val: /path/to/val/images
-    # nc: 1
-    # names: ['fire']
+    model = YOLO('yolov8n.pt')
     
     print("Starting training...")
     try:
