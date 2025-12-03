@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Dataset folders (large)
+fire-2/
+Fire&smoke-detection-*/
+Fire-Detection-YOLO-*/
+dataset_repo/
+dfire_repo/
+fire_dataset_repo/
+fire_model_repo/
+datasets/
+*.zip
+
+# Model weights (large binary files)
+*.pt
+*.pth
+*.onnx
+*.weights
+best.pt
+fire_model.pt
+yolov8*.pt
+
+# Training outputs
+runs/
+wandb/
+
+# Test/temporary files
+test_*.py
+test_*.jpg
+test_*.png
+test_*.mp4
+test_*.avi
+*_detected.jpg
+*_detected.png
+*_detected.mp4
+fire_test.*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary
+tmp/
+temp/
+
