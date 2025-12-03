@@ -68,3 +68,4 @@ if __name__ == "__main__":
     
     image_path = sys.argv[1]
     detect_fire_in_image(image_path)
+
