@@ -2,7 +2,6 @@
 
 An intelligent real-time fire and smoke detection system powered by YOLOv8 deep learning model. This project uses computer vision and artificial intelligence to detect fire hazards through webcam feeds or static images, providing immediate audio alerts when danger is detected.
 
-## 🎯 Overview
 
 This system leverages state-of-the-art YOLOv8 object detection to identify fire and smoke in real-time video streams. Designed for safety monitoring, the application can process live webcam feeds or analyze images, making it suitable for home security, industrial monitoring, or research purposes.
 
