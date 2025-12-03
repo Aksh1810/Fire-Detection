@@ -32,7 +32,7 @@ This system leverages state-of-the-art YOLOv8 object detection to identify fire 
 
 ## 📁 Project Structure
 
-```
+``
 ├── detect_fire.py          # Real-time webcam detection
 ├── detect_fire_image.py    # Static image detection
 ├── train_fire.py           # Model training script
@@ -40,7 +40,7 @@ This system leverages state-of-the-art YOLOv8 object detection to identify fire 
 ├── Fire_Detection_Colab.ipynb  # Google Colab training notebook
 ├── requirements.txt        # Python dependencies
 └── README.md
-```
+``
 
 ## 🎥 How It Works
 
