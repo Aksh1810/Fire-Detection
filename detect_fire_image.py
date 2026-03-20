@@ -3,8 +3,31 @@ from ultralytics import YOLO
 import math
 import os
 import sys
+import shlex
+
+
+def get_alert_audio_path():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        'ma-ka-bhosda.mp3',
+        'ma-ka-bhosda-aag.mp3',
+    ]
+    for name in candidates:
+        path = os.path.join(base_dir, name)
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def play_alert_audio(audio_path):
+    if not audio_path:
+        os.system('afplay /System/Library/Sounds/Sosumi.aiff &')
+        return
+    os.system(f"afplay {shlex.quote(audio_path)} &")
 
 def detect_fire_in_image(image_path, model_path='fire_model.pt'):
+    alert_audio_path = get_alert_audio_path()
+
     if not os.path.exists(model_path):
         print(f"Warning: '{model_path}' not found. Using standard 'yolov8n.pt'.")
         model = YOLO('yolov8n.pt')
@@ -56,6 +79,7 @@ def detect_fire_in_image(image_path, model_path='fire_model.pt'):
     cv2.destroyAllWindows()
     
     if fire_detected:
+        play_alert_audio(alert_audio_path)
         print("\n✅ Fire or smoke was detected in the image!")
     else:
         print("\n❌ No fire or smoke detected in the image.")

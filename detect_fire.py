@@ -2,10 +2,32 @@ import cv2
 from ultralytics import YOLO
 import math
 import os
+import shlex
 import argparse
+
+
+def get_alert_audio_path():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        'ma-ka-bhosda.mp3',
+        'ma-ka-bhosda-aag.mp3',
+    ]
+    for name in candidates:
+        path = os.path.join(base_dir, name)
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def play_alert_audio(audio_path):
+    if not audio_path:
+        os.system('afplay /System/Library/Sounds/Sosumi.aiff &')
+        return
+    os.system(f"afplay {shlex.quote(audio_path)} &")
 
 def main():
     model_path = 'fire_model.pt'
+    alert_audio_path = get_alert_audio_path()
     
     if not os.path.exists(model_path):
         print(f"Warning: '{model_path}' not found. Using standard 'yolov8n.pt'.")
@@ -34,6 +56,11 @@ def main():
 
     cap.set(3, 1280)
     cap.set(4, 720)
+
+    if alert_audio_path:
+        print(f"Using alert audio: {alert_audio_path}")
+    else:
+        print("Custom alert MP3 not found. Falling back to macOS default sound.")
 
     fire_detected_last_frame = False
 
@@ -67,7 +94,7 @@ def main():
                     print("!!! FIRE DETECTED !!!")
 
         if fire_detected_current_frame and not fire_detected_last_frame:
-            os.system('afplay /System/Library/Sounds/Sosumi.aiff &')
+            play_alert_audio(alert_audio_path)
 
         fire_detected_last_frame = fire_detected_current_frame
 
